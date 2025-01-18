@@ -43,8 +43,11 @@ import {
   Box,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { Menu, MenuItem, Avatar, Button } from "@mui/material";
 
 import { API_URL } from "./api";
+import About from "./public_pages/About";
 // import WelcomeHeader from "./WelcomeHeader";
 
 const App = () => {
@@ -64,6 +67,7 @@ const App = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [mobileMenuAnchor, setMobileMenuAnchor] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -99,6 +103,13 @@ const App = () => {
     return children;
   };
 
+  const handleMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
   const handleChangePassword = async (currentPassword, newPassword) => {
     try {
       await axios.put(`${API_URL}/change-password`, {
@@ -254,6 +265,17 @@ const App = () => {
               List of Courses
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/about"
+              style={navLinkStyle}
+              onClick={() => {
+                setDrawerOpen(false);
+              }}
+            >
+              About
+            </NavLink>
+          </li>
         </Box>
       );
     } else if (role === "teacher") {
@@ -330,7 +352,7 @@ const App = () => {
               View Grades
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink
               to="/my-courses"
               style={navLinkStyle}
@@ -339,6 +361,17 @@ const App = () => {
               }}
             >
               View Courses
+            </NavLink>
+          </li> */}
+          <li>
+            <NavLink
+              to="/about"
+              style={navLinkStyle}
+              onClick={() => {
+                setDrawerOpen(false);
+              }}
+            >
+              About
             </NavLink>
           </li>
         </Box>
@@ -372,14 +405,47 @@ const App = () => {
                       onClick={() => setDrawerOpen(!drawerOpen)}
                       sx={{ mr: 2 }}
                     >
-                      {drawerOpen ? "X" : <MenuIcon />}
+                      <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" sx={{ flexGrow: 1 }}>
-                      MAU SIMS {username} {role}
+                      MAU SIMS
                     </Typography>
-                    <IconButton color="inherit" onClick={handleLogout}>
-                      Logout
+                    <IconButton color="inherit" onClick={handleMenuOpen}>
+                      <AccountCircleIcon />
                     </IconButton>
+                    <Menu
+                      anchorEl={anchorEl}
+                      open={Boolean(anchorEl)}
+                      onClose={handleMenuClose}
+                      anchorOrigin={{
+                        vertical: "top",
+                        horizontal: "right",
+                      }}
+                      transformOrigin={{
+                        vertical: "top",
+                        horizontal: "right",
+                      }}
+                    >
+                      <MenuItem>
+                        <Avatar sx={{ mr: 1 }} />
+                        {username}
+                      </MenuItem>
+                      <MenuItem sx={{ color: "text.secondary" }}>
+                        Role: {role}
+                      </MenuItem>
+                      <MenuItem onClick={() => setDialogOpen(true)}>
+                        Change Password
+                      </MenuItem>
+                      <MenuItem
+                        onClick={() => {
+                          handleLogout();
+                          handleMenuClose();
+                        }}
+                        sx={{ color: "error.main" }}
+                      >
+                        Logout
+                      </MenuItem>
+                    </Menu>
                   </Toolbar>
                 </AppBar>
                 <Drawer
@@ -420,19 +486,52 @@ const App = () => {
                     </Typography>
                   </Box>
                   {renderNavLinks()}
-                  <Box sx={logoutContainerStyle}>
-                    <Box
-                      component="button"
-                      onClick={handleLogout}
-                      sx={{
-                        ...logoutButtonStyle,
-                        "&:hover": {
-                          backgroundColor: theme.palette.error.dark,
-                        },
-                      }}
-                    >
-                      Logout
-                    </Box>
+                    <Box sx={logoutContainerStyle}>
+                      <Button
+                        onClick={handleMenuOpen}
+                        startIcon={<AccountCircleIcon />}
+                        sx={{
+                          color: "white",
+                          width: "100%",
+                          justifyContent: "flex-start",
+                          padding: "12px",
+                        }}
+                      >
+                        Profile
+                      </Button>
+                      <Menu
+                        anchorEl={anchorEl}
+                        open={Boolean(anchorEl)}
+                        onClose={handleMenuClose}
+                        anchorOrigin={{
+                          vertical: "top",
+                          horizontal: "right",
+                        }}
+                        transformOrigin={{
+                          vertical: "top",
+                          horizontal: "right",
+                        }}
+                      >
+                        <MenuItem>
+                          <Avatar sx={{ mr: 1 }} />
+                          {username}
+                        </MenuItem>
+                        <MenuItem sx={{ color: "text.secondary" }}>
+                          Role: {role}
+                        </MenuItem>
+                        <MenuItem onClick={() => setDialogOpen(true)}>
+                          Change Password
+                        </MenuItem>
+                        <MenuItem
+                          onClick={() => {
+                            handleLogout();
+                            handleMenuClose();
+                          }}
+                          sx={{ color: "error.main" }}
+                        >
+                          Logout
+                        </MenuItem>
+                      </Menu>
                   </Box>
                 </Box>
               </Drawer>
@@ -469,6 +568,12 @@ const App = () => {
                 isAuthenticated ? <Navigate to="/dashboard" /> : <Login />
               }
             />
+             <Route
+              path="/about"
+              element={
+                  <About />
+              }
+            />
             <Route
               path="/register-faculity"
               element={
@@ -485,6 +590,7 @@ const App = () => {
                 </ProtectedRoute>
               }
             />
+            
             <Route
               path="/enroll"
               element={
