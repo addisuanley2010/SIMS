@@ -36,15 +36,11 @@ import {
   AppBar,
   Toolbar,
   IconButton,
-  Menu,
-  MenuItem,
   Typography,
   useMediaQuery,
   useTheme,
   Drawer,
   Box,
-  Container,
-  Accordion,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
@@ -90,7 +86,7 @@ const App = () => {
           }
         })
         .catch((error) => {
-          console.error("Error checking authentication:", error);
+          console.error("Error checking authentication:", mobileMenuAnchor);
           setIsAuthenticated(false);
         });
     }
