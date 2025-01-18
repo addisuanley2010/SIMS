@@ -48,7 +48,6 @@ const RegisterPerson = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
       
-    
     try {
       if (role != 1) {
 
