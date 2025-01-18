@@ -132,7 +132,7 @@ const RegisterPerson = () => {
               ))}
             </select>
           </div>
-          {role === 1 && (
+          {role == 1 && (
             <div className="display-flex">
               <div className="form-group">
                 <label>Year:</label>
