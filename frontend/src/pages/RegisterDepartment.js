@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../css/RegisterCourse.css';
 import { API_URL } from '../api';
+import { toast } from 'react-toastify';
 
 const RegisterDepartment = () => {
     const [faculityId, setfaculityId] = useState('');
@@ -25,11 +26,13 @@ const RegisterDepartment = () => {
         e.preventDefault();
         try {
             await axios.post( `${API_URL}/register/department`, { faculityId, departmentName });
-            setMessage('Registration successful!');
+            // setMessage('Registration successful!');
+            toast.success('Registration Successful!')
             setfaculityId('');
             setdepartmentName('');
         } catch (error) {
-            setMessage('faculity is already registered for this course!');
+            // setMessage('faculity is already registered for this course!');
+            toast.error('faculity is already registered for this course!')
         }
     };
 
