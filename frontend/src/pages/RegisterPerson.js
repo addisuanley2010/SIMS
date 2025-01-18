@@ -50,7 +50,7 @@ const RegisterPerson = () => {
       
     
     try {
-      if (role != 1) {
+      if (role !== 1) {
 
         await axios.post( `${API_URL}/register/teacher`, {
           personName,
@@ -132,7 +132,7 @@ const RegisterPerson = () => {
               ))}
             </select>
           </div>
-          {role == 1 && (
+          {role === 1 && (
             <div className="display-flex">
               <div className="form-group">
                 <label>Year:</label>
