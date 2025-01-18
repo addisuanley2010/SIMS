@@ -50,7 +50,7 @@ const RegisterPerson = () => {
       
     
     try {
-      if (role !== 1) {
+      if (role != 1) {
 
         await axios.post( `${API_URL}/register/teacher`, {
           personName,
