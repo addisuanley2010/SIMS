@@ -7,7 +7,7 @@ import { API_URL } from "../api";
 
 const MyGrade = () => {
   const [courses, setCourses] = useState([]);
-  const [view, setView] = useState(false);
+  // const [view, setView] = useState(false);
 
   const [loading, setLoading] = useState(true);
   const { user_id } = useContext(AuthContext);
