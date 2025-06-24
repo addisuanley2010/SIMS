@@ -14,7 +14,11 @@ router.get("/teacher/:teacherId/student-assessments", (req, res) => {
               assesment.final,
               assesment.mid,
               assesment.assignment,
-              assesment.test
+              assesment.test,
+              assesment.homework,
+              assesment.activity,
+              assesment.ex_book,
+              assesment.attendance
           FROM teacher
           LEFT JOIN course ON course.teacher_id = teacher.teacher_id
           LEFT JOIN enrollement ON course.course_id = enrollement.course_id
@@ -22,7 +26,7 @@ router.get("/teacher/:teacherId/student-assessments", (req, res) => {
           LEFT JOIN assesment ON enrollement.enrollement_id = assesment.enrollement_id
           WHERE teacher.teacher_id = ?
           ORDER BY course.course_name, student.student_name`,
-    [teacherId],
+    [teacherId], 
     (err, results) => {
       if (err) return res.status(500).send(err);
       res.json(results);
@@ -69,13 +73,13 @@ router.post("/register/teacher", (req, res) => {
 // Update assessment values
 router.put("/teacher/update-assessment/:enrollementId", (req, res) => {
   const enrollementId = req.params.enrollementId;
-  const { final, mid, assignment, test } = req.body;
-
+  const { final, mid, assignment, test,homework,activity,attendance,ex_book } = req.body;
+ 
   db.query(
     `UPDATE assesment 
-     SET final = ?, mid = ?, assignment = ?, test = ?
+     SET final = ?, mid = ?, assignment = ?, test = ?,homework = ?,activity=?,attendance=?,ex_book=?
      WHERE enrollement_id = ?`,
-    [final, mid, assignment, test, enrollementId],
+    [final, mid, assignment, test,homework,activity,attendance,ex_book, enrollementId], 
     (err, result) => {
       if (err) return res.status(500).send(err);
       if (result.affectedRows === 0) {

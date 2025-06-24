@@ -352,17 +352,7 @@ const App = () => {
               View Grades
             </NavLink>
           </li>
-          {/* <li>
-            <NavLink
-              to="/my-courses"
-              style={navLinkStyle}
-              onClick={() => {
-                setDrawerOpen(false);
-              }}
-            >
-              View Courses
-            </NavLink>
-          </li> */}
+         
           <li>
             <NavLink
               to="/about"
@@ -408,7 +398,7 @@ const App = () => {
                       <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" sx={{ flexGrow: 1 }}>
-                      MAU SIMS
+                      MSS SIMS
                     </Typography>
                     <IconButton color="inherit" onClick={handleMenuOpen}>
                       <AccountCircleIcon />
@@ -482,7 +472,7 @@ const App = () => {
                 <Box sx={{ overflow: "auto" }}>
                   <Box sx={logoStyle}>
                     <Typography variant="h6" sx={logoTextStyle}>
-                      MAU SIMS {username} {role}
+                      MSS SIMS {username} {role}
                     </Typography>
                   </Box>
                   {renderNavLinks()}
@@ -553,13 +543,13 @@ const App = () => {
             <Route
               path="/"
               element={
-                isAuthenticated ? <Navigate to="/faculities" /> : <Home />
+                isAuthenticated ? <Navigate to="/dashboard" /> : <Home />
               }
             />
             <Route
               path="/*"
               element={
-                isAuthenticated ? <Navigate to="/faculities" /> : <Login />
+                isAuthenticated ? <Navigate to="/dashboard" /> : <Login />
               }
             />
             <Route

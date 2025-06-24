@@ -10,7 +10,8 @@ const WelcomeHeader = () => {
               textShadow: "4px 4px 8px  #000000",
               translate: "30% 10%",
 
-      }}>Welcome to Mekdelamba University</h1>
+      }}>Welcome to   montosrian school system
+</h1>
     </div>
   )
 }

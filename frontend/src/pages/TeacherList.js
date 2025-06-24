@@ -49,7 +49,7 @@ const TeacherList = () => {
               {students.map((student, i) => (
                 <tr key={student.student_id}>
                   <th>{i + 1}</th>
-                  <td>MAU-{student.teacher_id}</td>
+                  <td>MSS-{student.teacher_id}</td>
                   <td>{student.teacher_name}</td>
                   <td>{student.department_name}</td>
                   <td>

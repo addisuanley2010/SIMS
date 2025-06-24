@@ -91,9 +91,8 @@ router.get("/display/student", (req, res) => {
         res.json(results);
       }
     );
-  });
+});
   
-
 // ........................view single student AssesmentList......................
 
 router.get("/student/:studentId/student-assessments", (req, res) => {
@@ -108,7 +107,11 @@ router.get("/student/:studentId/student-assessments", (req, res) => {
               assesment.final,
               assesment.mid,
               assesment.assignment,
-              assesment.test
+              assesment.test,
+               assesment.homework,
+              assesment.activity,
+              assesment.ex_book,
+              assesment.attendance
           FROM course
           LEFT JOIN teacher ON course.teacher_id = teacher.teacher_id
           JOIN enrollement ON course.course_id = enrollement.course_id

@@ -52,7 +52,7 @@ const FaculityDepartment = () => {
               {departments.map((department, i) => (
                 <tr key={department.department_id}>
                   <th>{i + 1}</th>
-                  <td>MAU-{department.department_id}</td>
+                  <td>MSS-{department.department_id}</td>
 
                   <td>{department.department_name}</td>
 

@@ -33,33 +33,7 @@ const MyGrade = () => {
     }, 0);
   };
 
-  const getGrade = (marks) => {
-    const totalMarks = sum(...marks);
-
-    if (totalMarks >= 90) {
-      return "A+";
-    } else if (totalMarks >= 85) {
-      return "A";
-    } else if (totalMarks >= 80) {
-      return "A-";
-    } else if (totalMarks >= 75) {
-      return "B+";
-    } else if (totalMarks >= 70) {
-      return "B";
-    } else if (totalMarks >= 65) {
-      return "B-";
-    } else if (totalMarks >= 60) {
-      return "C+";
-    } else if (totalMarks >= 50) {
-      return "C";
-    } else if (totalMarks >= 45) {
-      return "C-";
-    } else if (totalMarks >= 40) {
-      return "D";
-    } else {
-      return "F";
-    }
-  };
+ 
 
   if (loading) {
     return <div className="loading">Loading courses...</div>;
@@ -76,16 +50,19 @@ const MyGrade = () => {
             <table className="courses-table">
               <thead>
                 <tr>
-                  <th>No</th>
+                <th>S.NO</th>
                   <th>Course Name</th>
                   <th>Teacher Name</th>
-                  <th>Test</th>
-                  <th>Assignment</th>
-                  <th>Mid</th>
-                  <th>Final</th>
-                  <th>Total </th>
-                  <th>Grade</th>
-                  {/* <th>Action</th> */}
+                  <th>Class Activity (5%)</th>
+                  <th>Test One (10%)</th>
+                  <th>C & H Work (5%)</th>
+                  <th>Project Work (5%)</th>
+                  <th>Ex. Book (10%)</th>
+                  <th>Mid Exam (20%)</th>
+                  <th>Atten. and Dici. (5%)</th>
+                  <th>Final Exam (40%)</th>
+                  <th>total (100%)</th>
+                 
                 </tr>
               </thead>
               <tbody>
@@ -98,9 +75,13 @@ const MyGrade = () => {
                         ? "Not assigned!"
                         : course.teacher_name}
                     </td>
+                    <td>{course.activity || "-"}</td>
                     <td>{course.test || "-"}</td>
+                    <td>{course.homework || "-"}</td>
                     <td>{course.assignment || "-"}</td>
+                    <td>{course.ex_book || "-"}</td>
                     <td>{course.mid || "-"}</td>
+                    <td>{course.attendance || "-"}</td>
                     <td>{course.final || "-"}</td>
 
                     <td>
@@ -108,38 +89,15 @@ const MyGrade = () => {
                         course.test,
                         course.assignment,
                         course.mid,
-                        course.final
+                        course.final,
+                        course.activity,
+                        course.homework,  
+                        course.ex_book,
+                        course.attendance
                       )}
                     </td>
-                    <td>
-                      {getGrade([
-                        course.test,
-                        course.assignment,
-                        course.mid,
-                        course.final,
-                      ])}
-                    </td>
-                    {/* <td>
-                      <input
-                        type={view ? "text" : "password"}
-                        value={getGrade([
-                          course.test,
-                          course.assignment,
-                          course.mid,
-                          course.final,
-                        ])}
-                      />
-                    </td> */}
-
-                    {/* <td>
-                      <button
-                        onClick={() => {
-                          setView(!view);
-                        }}
-                      >
-                        View
-                      </button>
-                    </td> */}
+                 
+                   
                   </tr>
                 ))}
               </tbody>

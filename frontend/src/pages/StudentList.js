@@ -57,7 +57,7 @@ const StudentList = () => {
               {students.map((student, i) => (
                 <tr key={student.student_id}>
                   <th>{i + 1}</th>
-                  <td>MAU-{student.student_id}</td>
+                  <td>MSS-{student.student_id}</td>
                   <td>{student.student_name}</td>
                   <td>{student.accademic_year}</td>
                   <td>{student.semister}</td>

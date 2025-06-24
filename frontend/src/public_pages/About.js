@@ -14,12 +14,7 @@ const About = () => {
 
   return (
     <div className="about-container">
-      {/* <div className="about-header">
-        <h1 className="about-title">About Me</h1>
-        <p className="about-subtitle">
-          Hi, I'm Addisu Anley. I am software Engineering Graduate from Bahir Dar university and Fullstack developer.
-        </p>
-      </div> */}
+  
 
       <div className="about-content">
         <div className="contact-section">

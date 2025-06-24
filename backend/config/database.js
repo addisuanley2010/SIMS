@@ -14,10 +14,10 @@
 const mysql = require('mysql2');
 
 const db = mysql.createConnection({
-    host: 'beroogxcnmmnckxglpqc-mysql.services.clever-cloud.com',
-    user: 'u3lelttq538reowu',
-    password: 'XaIa5goSIJJHXTwTg91l',
-    database: 'beroogxcnmmnckxglpqc'
+    host: 'bimkmbsuzu5uo5cx9ma3-mysql.services.clever-cloud.com',
+    user: 'ujwvlemutufzqn81',
+    password: 'ulMFTxJ3BCUTAIcqupzc',
+    database: 'bimkmbsuzu5uo5cx9ma3'
 });
 
-module.exports = db;
+module.exports = db;         
