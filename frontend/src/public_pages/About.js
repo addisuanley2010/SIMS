@@ -22,7 +22,7 @@ const About = () => {
       <div className="about-content">
         <div className="contact-section">
           <h2>Let's Connect</h2>
-          <div className="contact-grid">
+          {/* <div className="contact-grid">
           
             <div className="contact-card" onClick={handleTelegramClick}>
               <i className="fab fa-telegram"></i>
@@ -44,7 +44,7 @@ const About = () => {
               <p></p>
               <span>addisuanley93@gmail.com</span>
             </div>
-          </div>
+          </div> */}
           <br/>
           <div className="contact-grid">
           
