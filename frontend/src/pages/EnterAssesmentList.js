@@ -74,13 +74,13 @@ const EnterAssessmentList = () => {
                 <tr>
                   <th>S.NO</th>
                   <th>Student's Name</th>
-                  <th>Class Activity (5%)</th>
-                  <th>Test One (10%)</th>
-                  <th>C & H Work (5%)</th>
-                  <th>Project Work (5%)</th>
+                  {/* <th>Class Activity (5%)</th> */}
+                  {/* <th>Test One (10%)</th> */}
+                  {/* <th>C & H Work (5%)</th> */}
+                  {/* <th>Project Work (5%)</th> */}
                   <th>Ex. Book (10%)</th>
-                  <th>Mid Exam (20%)</th>
-                  <th>Atten. and Dici. (5%)</th>
+                  <th>Assessment (50%)</th>
+                  {/* <th>Atten. and Dici. (5%)</th> */}
                   <th>Final Exam (40%)</th>
                   <th>total (100%)</th>
                   <th>Action</th>
@@ -91,7 +91,7 @@ const EnterAssessmentList = () => {
                   <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{course.student_name}</td>
-                    <td>
+                    {/* <td>
                       {editingId === index ? (
                         <input
                           type="number"
@@ -104,8 +104,8 @@ const EnterAssessmentList = () => {
                       ) : (
                         course.activity || "-"
                       )}
-                    </td>
-                    <td>
+                    </td> */}
+                    {/* <td>
                       {editingId === index ? (
                         <input
                           type="number"
@@ -116,8 +116,8 @@ const EnterAssessmentList = () => {
                       ) : (
                         course.test || "-"
                       )}
-                    </td>
-                    <td>
+                    </td> */}
+                    {/* <td>
                       {editingId === index ? (
                         <input
                           type="number"
@@ -130,8 +130,8 @@ const EnterAssessmentList = () => {
                       ) : (
                         course.homework || "-"
                       )}
-                    </td>
-                    <td>
+                    </td> */}
+                    {/* <td>
                       {editingId === index ? (
                         <input
                           type="number"
@@ -144,7 +144,7 @@ const EnterAssessmentList = () => {
                       ) : (
                         course.assignment || "-"
                       )}
-                    </td>
+                    </td> */}
                     <td>
                       {editingId === index ? (
                         <input
@@ -171,7 +171,7 @@ const EnterAssessmentList = () => {
                         course.mid || "-"
                       )}
                     </td>
-                    <td>
+                    {/* <td>
                       {editingId === index ? (
                         <input
                           type="number"
@@ -184,7 +184,7 @@ const EnterAssessmentList = () => {
                       ) : (
                         course.attendance || "-"
                       )}
-                    </td>
+                    </td> */}
                     <td>
                       {editingId === index ? (
                         <input
@@ -202,11 +202,11 @@ const EnterAssessmentList = () => {
                     <td>
                       {Number(course.final) +
                         Number(course.mid) +
-                        Number(course.assignment) +
-                        Number(course.test) +
-                        Number(course.homework) +
-                        Number(course.activity) +
-                        Number(course.attendance) +
+                        // Number(course.assignment) +
+                        // Number(course.test) +
+                        // Number(course.homework) +
+                        // Number(course.activity) +
+                        // Number(course.attendance) +
                         Number(course.ex_book) || 0}
                     </td>{" "}
                     <td>

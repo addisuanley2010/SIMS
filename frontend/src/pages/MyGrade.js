@@ -53,13 +53,13 @@ const MyGrade = () => {
                 <th>S.NO</th>
                   <th>Course Name</th>
                   <th>Teacher Name</th>
-                  <th>Class Activity (5%)</th>
-                  <th>Test One (10%)</th>
-                  <th>C & H Work (5%)</th>
-                  <th>Project Work (5%)</th>
+                  {/* <th>Class Activity (5%)</th> */}
+                  {/* <th>Test One (10%)</th> */}
+                  {/* <th>C & H Work (5%)</th> */}
+                  {/* <th>Project Work (5%)</th> */}
                   <th>Ex. Book (10%)</th>
-                  <th>Mid Exam (20%)</th>
-                  <th>Atten. and Dici. (5%)</th>
+                  <th>Assessment(50%)</th>
+                  {/* <th>Atten. and Dici. (5%)</th> */}
                   <th>Final Exam (40%)</th>
                   <th>total (100%)</th>
                  
@@ -75,25 +75,25 @@ const MyGrade = () => {
                         ? "Not assigned!"
                         : course.teacher_name}
                     </td>
-                    <td>{course.activity || "-"}</td>
-                    <td>{course.test || "-"}</td>
-                    <td>{course.homework || "-"}</td>
-                    <td>{course.assignment || "-"}</td>
+                    {/* <td>{course.activity || "-"}</td> */}
+                    {/* <td>{course.test || "-"}</td> */}
+                    {/* <td>{course.homework || "-"}</td> */}
+                    {/* <td>{course.assignment || "-"}</td> */}
                     <td>{course.ex_book || "-"}</td>
                     <td>{course.mid || "-"}</td>
-                    <td>{course.attendance || "-"}</td>
+                    {/* <td>{course.attendance || "-"}</td> */}
                     <td>{course.final || "-"}</td>
 
                     <td>
                       {sum(
-                        course.test,
-                        course.assignment,
+                        // course.test,
+                        // course.assignment,
                         course.mid,
                         course.final,
-                        course.activity,
-                        course.homework,  
+                        // course.activity,
+                        // course.homework,  
                         course.ex_book,
-                        course.attendance
+                        // course.attendance
                       )}
                     </td>
                  

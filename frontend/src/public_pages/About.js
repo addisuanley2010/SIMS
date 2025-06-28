@@ -58,7 +58,7 @@ const About = () => {
             <i className="fab fa-linkedin"></i>
 
                         <p></p>
-            <a href="https://www.linkedin.com/in/addisu-anley/">
+            <a href="https://www.linkedin.com/in/abebe-tafere-6176781a2/">
               Abebe T.
             </a>
                     </div>
@@ -66,7 +66,7 @@ const About = () => {
             <i className="fas fa-envelope"></i>
 
             <p></p>
-            <span>abebetafere12@gmail.com</span>
+            <span> abebetafere988@gmail.com</span>
           </div>
         </div>
         </div>
